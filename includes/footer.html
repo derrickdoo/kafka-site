@@ -1,9 +1,42 @@
+			</div>
 		</div>
-		<div id="footer">
-			<a href="http://www.apache.org">
-				<img class="feather" src="/images/feather-small.png" alt="Apache Feather">
-			</a>
-		</div>
-		</div>
-	</body>
+	</div>
+	<a class="apache-feather" target="_blank" href="http://www.apache.org">
+		<img width="60" src="/images/feather-small.png" alt="Apache Feather">
+	</a>
+</body>
+
+	<script>
+		$(function() {
+			// Helper classes for nav
+			$('nav').mouseenter(function(){
+				$(this).addClass('hovering');
+			});
+			$('nav').mouseleave(function(){
+				$(this).removeClass('hovering');
+			});
+
+			// Initialize sticky elements on the page
+			$('.b-sticky').stick_in_parent();
+
+			// On window resize check to see if stuff should be unstuck
+			window.onresize = function(event) {
+			  if($(window).width() <= 600) {
+			    $('.b-sticky').trigger("sticky_kit:detach")
+			  } else {
+			    $('.b-sticky').stick_in_parent();
+			  }
+			};
+		});
+	</script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-7818013-4', 'apache.org');
+		ga('send', 'pageview');
+
+	</script>
 </html>
