@@ -21,6 +21,9 @@ code, pre {
 	margin: 2rem 0;
 }
 code b, pre b,
+h1, h2, h3, h4 {
+	line-height: 1.2;
+}
 h1 a, h2 a, h3 a, h4 a {
 	color: #000000;
 }
@@ -38,6 +41,16 @@ h2 {
 h3, h4 {
 	font-size: 2rem;
 	font-weight: 700;
+}
+h3.bullet {
+	margin-bottom: 1rem;
+}
+h3.bullet::after {
+	content: "";
+	display: block;
+	background-color: #000000;
+	height: .2rem;
+	width: 5rem;
 }
 a {
 	color: #0B6D88;
@@ -67,6 +80,9 @@ img {
 	width: 3.2rem;
 	display: inline-block;
 	border-radius: 2rem;
+}
+ul {
+	padding-left: 2rem;
 }
 .toc {
 	padding: 0;
@@ -122,6 +138,10 @@ img {
 	display: block;
 	margin: auto;
 }
+.pb-10 {
+	display: inline-block;
+	padding-bottom: 1rem;
+}
 
 /* components */
 .main {
@@ -144,7 +164,7 @@ img {
 	margin: 3rem 0 1rem;
 }
 .content {
-	margin-top: 1.5rem;
+	margin-top: 3rem;
 }
 nav {
 	float: left;
@@ -196,14 +216,24 @@ nav .btn {
 	margin-top: 4rem;
 }
 .social-links {
-	float:right;
-	margin-top: 4rem;
+	margin-top: 2rem;
+	font-size: 1.2rem;
 }
-.social-links .btn-rnd {
-	margin: 0 .2rem;
+.twitter {
+	color: #888888;
+	text-transform: none;
+	background-image: url(/images/twitter_logo.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	padding-left: 1.9rem;
+}
+.twitter:hover {
+	color: #888888;
+	opacity: 0.8;
 }
 .right {
 	margin-left: 22rem;
+	min-height: 60rem;
 }
 .apache-feather {
 	position: fixed;
@@ -224,8 +254,8 @@ nav .btn {
 	padding-right: 10rem;
 }
 .desc {
-	margin-top: 6rem;
-	margin-bottom: 5rem;
+	margin-top: 4rem;
+	margin-bottom: 6rem;
 }
 .desc--m {
 	display: none;
@@ -377,6 +407,7 @@ nav .btn {
 	}
 	.right {
 		margin: 0;
+		min-height: auto;
 	}
 }
 
