@@ -1,10 +1,13 @@
+				</div>
 			</div>
 		</div>
-	</div>
-	<a class="apache-feather" target="_blank" href="http://www.apache.org">
-		<img width="60" src="/images/feather-small.png" alt="Apache Feather">
-	</a>
-</body>
+		<div class="footer">
+			<span>Apache Kafka, Kafka, Apache, and the Kafka logo are trademarks of The Apache Software Foundation.</span>
+		</div>
+		<a class="apache-feather" target="_blank" href="http://www.apache.org">
+			<img width="60" src="/images/feather-small.png" alt="Apache Feather">
+		</a>
+	</body>
 
 	<script>
 		$(function() {
@@ -17,14 +20,16 @@
 			});
 
 			// Initialize sticky elements on the page
-			$('.b-sticky').stick_in_parent();
+			if($(window).width() > 650) {
+				$('.b-sticky-nav').stick_in_parent({offset_top: 40});
+			}
 
 			// On window resize check to see if stuff should be unstuck
 			window.onresize = function(event) {
-			  if($(window).width() <= 600) {
-			    $('.b-sticky').trigger("sticky_kit:detach")
+			  if($(window).width() <= 650) {
+			    $('.b-sticky-nav').trigger("sticky_kit:detach")
 			  } else {
-			    $('.b-sticky').stick_in_parent();
+			    $('.b-sticky-nav').stick_in_parent({offset_top: 40});
 			  }
 			};
 		});

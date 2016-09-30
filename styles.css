@@ -1,16 +1,28 @@
+/* globals */
 html {
 	font-size: 62.5%;
 }
-
 body {
+	min-width: 32rem;
 	font-size: 1.4rem;
 	line-height: 1.6;
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 }
-
 code, pre {
 	font-family: 'Cutive Mono', monospace;
+	border-style: solid;
+	border-color: #E5E5E5;
+	border-width: .1rem .5rem;
+	overflow-y: scroll;
+	padding: 1rem 2rem 1.5rem;
+	color: #444444;
+	display: block;
+	margin: 2rem 0;
+}
+code b, pre b,
+h1 a, h2 a, h3 a, h4 a {
+	color: #000000;
 }
 h1 {
 	font-size: 5.6rem;
@@ -18,19 +30,24 @@ h1 {
 	margin: 0;
 }
 h2 {
-	font-size: 18pt;
-}
-h3 {
+	text-transform: uppercase;
 	font-size: 2rem;
 	font-weight: 700;
 	margin: 0;
 }
-h4 {
-	font-size: 14pt;
+h3, h4 {
+	font-size: 2rem;
+	font-weight: 700;
 }
 a {
 	color: #0B6D88;
 	text-decoration: none;
+}
+a:hover {
+	color: #0C637B;
+}
+img {
+	max-width: 100%;
 }
 .btn {
 	background-color: #0B6D88;
@@ -40,6 +57,10 @@ a {
 	text-transform: capitalize;
 	padding: .9rem 2rem;
 }
+.btn:hover {
+	background-color: #0C637B;
+	color: #FFFFFF;
+}
 .btn-rnd {
 	border: 2px solid #000000;
 	height: 3.2rem;
@@ -47,19 +68,83 @@ a {
 	display: inline-block;
 	border-radius: 2rem;
 }
+.toc {
+	padding: 0;
+	list-style: none;
+	text-transform: uppercase;
+}
+.toc a {
+	color: #000000;
+}
+.toc ul {
+	padding: 0 3.2rem;
+	text-transform: none;
+	font-weight: 400;
+	margin-bottom: 1.5rem;
+}
+.toc a:hover,
+.toc ul a {
+	color: #0B6D88;
+}
+.toc ul ul {
+	padding: 0 1.8rem;
+	margin-bottom: 0;
+}
+.data-table {
+	display: block;
+  border: none;
+  border-collapse: collapse;
+  max-width: 100%;
+	overflow-x: scroll;
+	margin: 2rem 0;
+}
+.data-table tbody {
+	border-style: solid;
+	border-color: #E5E5E5;
+	border-width: 0 .5rem;
+}
+.data-table td, .data-table th {
+  border: .1rem solid #cccccc;
+  padding: .5rem 1rem;
+}
+.data-table th {
+	text-align: left;
+  background-color: #000000;
+	border: .1rem solid #222222;
+	color: #ffffff;
+	font-weight: 400;
+	padding: 1rem;
+	text-transform: uppercase;
+}
 
+/* helper classes */
+.centered {
+	display: block;
+	margin: auto;
+}
+
+/* components */
 .main {
 	margin: 0 auto;
-	max-width: 980px;
-	padding: 20px;
+	max-width: 98rem;
+	padding: 0 2rem 8rem 2rem;
 }
-.header {}
+.header {
+	padding: 2rem 0 1rem;
+	background-color: #FFFFFF;
+}
+.footer {
+	border-top:1px solid #dedede;
+	font-size: .9rem;
+	color: #888888;
+	padding: 2rem;
+}
 .sub-header {
 	overflow: hidden;
-	margin-top: 4rem;
+	margin: 3rem 0 1rem;
 }
 .content {
-	margin-top: 1.5em;
+	margin-top: 1.5rem;
 }
 nav {
 	float: left;
@@ -117,73 +202,23 @@ nav .btn {
 .social-links .btn-rnd {
 	margin: 0 .2rem;
 }
-
 .right {
-	margin-left: 20rem;
+	margin-left: 22rem;
 }
 .apache-feather {
 	position: fixed;
 	bottom: 2rem;
 	right: 2rem;
+	transition: all .2s ease-out;
+
+}
+.apache-feather:hover {
+	-ms-transform: rotate(-56deg);
+  -webkit-transform: rotate(-56deg);
+  transform: rotate(-56deg);
 }
 
-
-
-
-
-.title, .subtitle {
-	color: black;
-	font-size: 50pt;
-	line-height: 55%;
-    text-align: center;
-}
-.subtitle {
-	font-size: 20pt;
-}
-.projects, .projects a {
-	font-style: normal;
-	font-size: 11pt;
-}
-
-.numeric {
-  text-align: right;
-}
-.data-table {
-  border: 1px solid #a9a9a9;
-  border-collapse: collapse;
-  width: 1000px;
-}
-.data-table td, .data-table th {
-  border: 1px solid #888;
-  padding: 2px;
-}
-.data-table th {
-  background-color: #ccc;
-  font-weight: bold;
-}
-.advert-message {
-  border: 3px solid #2e4a8e;
-  padding: 15px;
-}
-.buzzword {
-	font-size: 18pt;
-	line-height: 200%;
-	color: #2e4a8e;
-}
-.caption {
-	font-size: 11pt;
-	font-weight: bold
-}
-.toc {
-	font-size: 15pt;
-}
-.toc ul {
-	font-size: 14pt;
-}
-.toc ul ul {
-	font-size: 13pt;
-}
-
+/* pages */
 .index {
 	text-align: center;
 	padding-right: 10rem;
@@ -201,9 +236,6 @@ nav .btn {
 	width: 33%;
 	min-width: 25rem;
 }
-.desc-item h3 {
-	text-transform: uppercase;
-}
 .desc-item p {
 	margin: 0;
 	width: 22rem;
@@ -216,14 +248,28 @@ nav .btn {
 	margin: .2rem 0 1rem;
 }
 .callout {
-	font-size: 1.4rem;
 	background-color: #F0F0F0;
-	padding: 20px 30px;
-	width: 330px;
+	padding: 2rem 3rem;
+	width: 33rem;
 	margin: 2rem auto 0;
+	position: relative;
+}
+.callout::before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8rem 0 0 5rem;
+	border-color: transparent transparent transparent #F0F0F0;
+	top: -6rem;
+	right: 10rem;
+	position: absolute;
+	-ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
 }
 
-/* Smaller viewports */
+/* Responsive styles */
 @media only screen and (max-width: 900px) {
 	.desc {
 		display: none;
@@ -238,5 +284,117 @@ nav .btn {
 	}
 	.desc-item p {
 		width: auto;
+	}
+	.index {
+		padding-right: 0;
+		text-align: left;
+	}
+	.callout {
+		margin: 2rem 1.5rem;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.desc-item {
+		margin-bottom: 3rem;
+	}
+	.kafka-diagram {
+		width: 80%;
+		min-width: 28rem;
+		height: auto;
+	}
+	.callout {
+		width: 60%;
+		min-width: 21rem;
+	}
+	.callout::before {
+		right: 25%;
+	}
+}
+
+@media only screen and (max-width: 650px) {
+	.kafka-diagram {
+		display: block;
+		margin: 0 auto;
+	}
+	.callout {
+		margin: 2rem auto;
+	}
+	.navindicator {
+		min-width: 32rem;
+		position: fixed;
+		bottom: 3.9rem;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		z-index: 2;
+	}
+	.navindicator__item {
+		height: .2rem;
+		width: calc(79% / 11);
+		background-color: #888888;
+		display: inline-block;
+		margin: 0 .5%;
+	}
+	.navindicator__item.selected {
+		background-color: #FFFFFF;
+	}
+	nav {
+		display: block;
+    position: fixed;
+    background-color: #000000;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+		z-index: 1;
+		overflow-x: scroll;
+		box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+	}
+	.nav__inner {
+		width: 1500px;
+	}
+	.nav__item,
+	.nav__item:first-of-type {
+		color: #888888;
+		float: left;
+		padding: 2.2rem 1.6rem 1.1rem;
+		border: none;
+	}
+	.nav__item.selected,
+	.nav__item:hover {
+		color: #FFFFFF;
+	}
+	.nav__item::after,
+	.nav__item.selected::after,
+	nav.hovering .nav__item:hover::after,
+	nav .btn,
+	.social-links,
+	.footer {
+		display: none;
+	}
+	.desc {
+		margin-top: 3rem;
+	}
+	.right {
+		margin: 0;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	body {
+		font-size: 1.2rem;
+	}
+	h1 {
+		font-size: 3.6rem;
+	}
+	h2, h3, h4 {
+		font-size: 1.6rem;
+	}
+	.logo {
+		width: 18rem;
+		height: auto;
+	}
+	.desc-item {
+		margin-bottom: 2rem;
 	}
 }
