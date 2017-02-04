@@ -86,7 +86,7 @@
             <li><b>Sink Processor</b>: A sink processor is a special type of stream processor that does not have down-stream processors. It sends any received records from its up-stream processors to a specified Kafka topic.</li>
         </ul>
 
-        <img class="centered" src="/{{version}}/images/streams-architecture-topology.jpg">
+        <img class="centered" src="/{{version}}/images/streams-architecture-topology.jpg" style="width:400px">
 
         <p>
             Kafka Streams offers two ways to define the stream processing topology: the <a href="#streams_dsl"><b>Kafka Streams DSL</b></a> provides
@@ -164,9 +164,9 @@
         Kafka to offer data parallelism, distributed coordination, fault tolerance, and operational simplicity. In this section, we describe how Kafka Streams works underneath the covers.
 
         <p>
-        The picture below shows the anatomy of an application that uses the Kafka Streams library. Let’s walk through some details.
+        The picture below shows the anatomy of an application that uses the Kafka Streams library. Let's walk through some details.
         </p>
-        <img class="centered" src="/{{version}}/images/streams-architecture-overview.jpg">
+        <img class="centered" src="/{{version}}/images/streams-architecture-overview.jpg" style="width:750px">
 
         <h3><a id="streams_architecture_tasks" href="#streams_architecture_tasks">Stream Partitions and Tasks</a></h3>
 
@@ -184,7 +184,7 @@
         </ul>
 
         <p>
-        An application’s processor topology is scaled by breaking it into multiple tasks.
+        An application's processor topology is scaled by breaking it into multiple tasks.
         More specifically, Kafka Streams creates a fixed number of tasks based on the input stream partitions for the application,
         with each task assigned a list of partitions from the input streams (i.e., Kafka topics). The assignment of partitions to tasks
         never changes so that each task is a fixed unit of parallelism of the application. Tasks can then instantiate their own processor topology
@@ -202,7 +202,7 @@
         <p>
         The following diagram shows two tasks each assigned with one partition of the input streams.
         </p>
-        <img class="centered" src="/{{version}}/images/streams-architecture-tasks.jpg">
+        <img class="centered" src="/{{version}}/images/streams-architecture-tasks.jpg" style="width:400px">
         <br>
 
         <h3><a id="streams_architecture_threads" href="#streams_architecture_threads">Threading Model</a></h3>
@@ -211,7 +211,7 @@
         Kafka Streams allows the user to configure the number of <b>threads</b> that the library can use to parallelize processing within an application instance.
         Each thread can execute one or more tasks with their processor topologies independently. For example, The following diagram shows one stream thread running two stream tasks.
         </p>
-        <img class="centered" src="/{{version}}/images/streams-architecture-threads.jpg">
+        <img class="centered" src="/{{version}}/images/streams-architecture-threads.jpg" style="width:400px">
 
         <p>
         Starting more stream threads or more instances of the application merely amounts to replicating the topology and having it process a different subset of Kafka partitions, effectively parallelizing processing.
@@ -242,7 +242,7 @@
         <p>
         The following diagram shows wwo stream tasks with their dedicated local state stores.
         </p>
-        <img class="centered" src="/{{version}}/images/streams-architecture-states.jpg">
+        <img class="centered" src="/{{version}}/images/streams-architecture-states.jpg" style="width:400px">
         <br>
 
         <h3><a id="streams_architecture_recovery" href="#streams_architecture_recovery">Fault Tolerance</a></h3>
@@ -486,12 +486,12 @@
         <p>
         Let’s illustrate this with an example. Imagine a table that tracks the total number of pageviews by user (first column of diagram below). Over time, whenever a new pageview event is processed, the state of the table is updated accordingly. Here, the state changes between different points in time – and different revisions of the table – can be represented as a changelog stream (second column).
         </p>
-        <img class="centered" src="/{{version}}/images/streams-table-duality-02.png">
+        <img class="centered" src="/{{version}}/images/streams-table-duality-02.png" style="width:300px">
 
         <p>
         Interestingly, because of the stream-table duality, the same stream can be used to reconstruct the original table (third column):
         </p>
-        <img class="centered" src="/{{version}}/images/streams-table-duality-03.png">
+        <img class="centered" src="/{{version}}/images/streams-table-duality-03.png" style="width:600px">
 
         <p>
         The same mechanism is used, for example, to replicate databases via change data capture (CDC) and, within Kafka Streams, to replicate its so-called state stores across machines for fault-tolerance.
